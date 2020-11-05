@@ -1,23 +1,26 @@
 import React, { useState, useEffect } from "react";
+// import savedContext from "../utils/savedContext";
 import axios from "axios";
 
 const Saved = () => {
   const [allBooks, setAllBooks] = useState([]);
+  // const { books } = useContext(savedContext);
 
   useEffect(() => {
     axios.get("/api/books").then((response) => {
-      console.log(response.data);
-      //FIXME: can't get thsi to work
-      //   setAllBooks(response.data);
+      // console.log(response.data);
+      setAllBooks(response.data);
     });
   }, []);
 
   return (
     <div>
       {allBooks.map((i) => (
-        <p>{i}</p>
+        <>
+          <p>{i.title}</p>
+          <p>{i.authors}</p>
+        </>
       ))}
-      <h1>test</h1>
     </div>
   );
 };

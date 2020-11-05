@@ -22,20 +22,38 @@ const Search = () => {
 
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          onChange={handleInputChange}
-          name="title"
-          value={titleState}
-        />
-        <button type="submit" onClick={handleSubmit}>
+      <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            value={titleState}
+            onChange={handleInputChange}
+          />
+        </div>
+
+        <button onClick={handleSubmit} type="submit" class="btn btn-primary">
           Submit
         </button>
       </form>
-      {results.map((res) => (
-        <Result title={res.volumeInfo.title} />
-      ))}
+      <div className="container">
+        <h3>Results:</h3>
+        <div className="row">
+          <div className="col-12">
+            {results.map((res) => (
+              <Result
+                title={res.volumeInfo.title}
+                authors={res.volumeInfo.authors}
+                description={res.volumeInfo.description}
+                link={res.selfLink}
+                image={res.volumeInfo.imageLinks.thumbnail}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
