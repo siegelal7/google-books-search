@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Result = (props) => {
-  const [savedBook, setSavedBook] = useState([]);
+  // const [savedBook, setSavedBook] = useState([]);
   const [state, setState] = useState({
     title: props.title,
     authors: props.authors,
@@ -19,12 +19,20 @@ const Result = (props) => {
     });
   };
   const handleView = (e) => {
-    // axios.post("/api/books", (req, res) => {});
+    // console.log("clicked");
+    let path = state.link;
+    window.open(path);
   };
+
   return (
     <div style={{ border: "1px solid black", position: "relative" }}>
-      <p>{props.title}</p>
-      <p>{props.authors}</p>
+      <img src={props.image} />
+      <h4>{props.title}</h4>
+      {props.authors.map((aut) => (
+        <h5 key={aut} style={{ display: "inline" }}>
+          {aut}{" "}
+        </h5>
+      ))}
       <p>{props.description}</p>
       <button
         onClick={handleSave}

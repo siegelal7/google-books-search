@@ -15,7 +15,7 @@ const Search = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     API.getBook(titleState).then((res) => {
-      console.log(res.data.items);
+      // console.log(res.data.items);
       setResults(res.data.items);
     });
   };
@@ -23,18 +23,22 @@ const Search = () => {
   return (
     <div>
       <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
-        <div class="form-group">
-          <label for="title">Title</label>
+        <div className="form-group">
+          <label htmlFor="title">Title</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             name="title"
             value={titleState}
             onChange={handleInputChange}
           />
         </div>
 
-        <button onClick={handleSubmit} type="submit" class="btn btn-primary">
+        <button
+          onClick={handleSubmit}
+          type="submit"
+          className="btn btn-primary"
+        >
           Submit
         </button>
       </form>
@@ -44,11 +48,16 @@ const Search = () => {
           <div className="col-12">
             {results.map((res) => (
               <Result
+                key={res.selfLink}
                 title={res.volumeInfo.title}
                 authors={res.volumeInfo.authors}
                 description={res.volumeInfo.description}
-                link={res.selfLink}
-                image={res.volumeInfo.imageLinks.thumbnail}
+                link={res.volumeInfo.infoLink}
+                image={
+                  res.volumeInfo.imageLinks.thumbnail
+                    ? res.volumeInfo.imageLinks.thumbnail
+                    : ""
+                }
               />
             ))}
           </div>

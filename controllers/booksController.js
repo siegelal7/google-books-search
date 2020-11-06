@@ -22,4 +22,17 @@ router.post("/api/books", (req, res) => {
   });
 });
 
+// router.delete("/api/books", (req, res) => {
+//   db.Books.findOneAndDelete({
+//     title: req.body.title,
+//   }).then((deleted) => {
+//     res.json(deleted);
+//   });
+// });
+router.delete("/api/books/:id", (req, res) => {
+  db.Books.findByIdAndDelete(req.params.id).then((deleted) => {
+    res.json(deleted);
+  });
+});
+
 module.exports = router;
