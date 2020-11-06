@@ -29,11 +29,11 @@ const Search = () => {
     <div>
       <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
         <div className="form-group">
-          <label htmlFor="title">Title</label>
+          <label htmlFor="title">Search</label>
           <input
-            type="text"
+            type="Search"
             className="form-control"
-            name="title"
+            name="Search"
             value={titleState}
             onChange={handleInputChange}
           />
