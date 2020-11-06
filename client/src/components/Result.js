@@ -23,7 +23,7 @@ const Result = (props) => {
     let path = state.link;
     window.open(path);
   };
-
+  const determineIfThumbnail = () => {};
   return (
     <div style={{ border: "1px solid black", position: "relative" }}>
       <img src={props.image} />

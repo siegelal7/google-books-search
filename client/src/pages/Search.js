@@ -20,6 +20,11 @@ const Search = () => {
     });
   };
 
+  // const determineIfThumbnail = () => {
+  //   if (){
+  //     return
+  //   }
+  // };
   return (
     <div>
       <form style={{ border: "0.5px solid black", marginBottom: "1%" }}>
@@ -46,6 +51,7 @@ const Search = () => {
         <h3>Results:</h3>
         <div className="row">
           <div className="col-12">
+            {/* FIXME: image */}
             {results.map((res) => (
               <Result
                 key={res.selfLink}
@@ -53,11 +59,7 @@ const Search = () => {
                 authors={res.volumeInfo.authors}
                 description={res.volumeInfo.description}
                 link={res.volumeInfo.infoLink}
-                image={
-                  res.volumeInfo.imageLinks.thumbnail
-                    ? res.volumeInfo.imageLinks.thumbnail
-                    : ""
-                }
+                // image={res.volumeInfo.imageLinks.thumbnail}
               />
             ))}
           </div>
