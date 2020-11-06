@@ -35,7 +35,7 @@ const Result = (props) => {
               {aut}{" "}
             </h5>
           ))}
-      {/* <h5>{props.authors}</h5> */}
+
       <p>{props.description}</p>
       <button
         onClick={handleSave}

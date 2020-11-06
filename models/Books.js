@@ -9,18 +9,15 @@ const BooksSchema = new Schema({
   },
   authors: {
     type: Array,
-    required: "Author is required",
   },
   description: {
     type: String,
-    required: "Description is required",
   },
   image: {
     type: String,
   },
   link: {
     type: String,
-    required: "A link is required",
   },
 });
 
