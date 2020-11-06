@@ -8,7 +8,7 @@ const SavedCard = (props) => {
 
     Axios.delete(`/api/books/${id}`).then((res) => {
       console.log(res);
-      window.location.reload();
+      props.loadBooks();
     });
   };
   //   async deleteTodo(id) {

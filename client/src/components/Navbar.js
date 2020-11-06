@@ -10,12 +10,12 @@ const Navbar = () => {
       <h4 className="navbar-brand">Google Books</h4>
       <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/search">
+          <NavLink className="nav-link" to="/search" activeClassName="active">
             Search <span className="sr-only">(current)</span>
           </NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/">
+          <NavLink className="nav-link" to="/" activeClassName="active">
             Saved <span className="sr-only">(current)</span>
           </NavLink>
         </li>

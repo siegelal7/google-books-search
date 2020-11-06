@@ -23,16 +23,19 @@ const Result = (props) => {
     let path = state.link;
     window.open(path);
   };
-  const determineIfThumbnail = () => {};
+
   return (
     <div style={{ border: "1px solid black", position: "relative" }}>
       <img src={props.image} />
       <h4>{props.title}</h4>
-      {props.authors.map((aut) => (
-        <h5 key={aut} style={{ display: "inline" }}>
-          {aut}{" "}
-        </h5>
-      ))}
+      {props.authors === undefined
+        ? ""
+        : props.authors.map((aut) => (
+            <h5 key={aut} style={{ display: "inline" }}>
+              {aut}{" "}
+            </h5>
+          ))}
+      {/* <h5>{props.authors}</h5> */}
       <p>{props.description}</p>
       <button
         onClick={handleSave}

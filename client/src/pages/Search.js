@@ -51,17 +51,22 @@ const Search = () => {
         <h3>Results:</h3>
         <div className="row">
           <div className="col-12">
-            {/* FIXME: image */}
-            {results.map((res) => (
-              <Result
-                key={res.selfLink}
-                title={res.volumeInfo.title}
-                authors={res.volumeInfo.authors}
-                description={res.volumeInfo.description}
-                link={res.volumeInfo.infoLink}
-                // image={res.volumeInfo.imageLinks.thumbnail}
-              />
-            ))}
+            {results === undefined || results.length === 0
+              ? "Sorry, there are no results for that title"
+              : results.map((res) => (
+                  <Result
+                    key={res.selfLink}
+                    title={res.volumeInfo.title}
+                    authors={res.volumeInfo.authors}
+                    description={res.volumeInfo.description}
+                    link={res.volumeInfo.infoLink}
+                    image={
+                      res.volumeInfo.imageLinks === undefined
+                        ? ""
+                        : res.volumeInfo.imageLinks.thumbnail
+                    }
+                  />
+                ))}
           </div>
         </div>
       </div>
